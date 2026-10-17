@@ -45,5 +45,49 @@ Yoshi Valley shows "?" position as in the original.
 - 3–4-player local split-screen is provided via Online Play instead (up to 4 separate devices);
   local split is 2 players. Local Battle fills with CPU; the original's "loser becomes a bomb" rule is
   simplified to spectating.
-- Some signature set pieces are simplified (Rainbow Road rails are guard blocks; Double Deck is one level
-  with perimeter walls; no staff ghosts — Time Trials race your own saved ghost).
+- Some signature set pieces are simplified (Rainbow Road rails are guard blocks; no staff ghosts —
+  Time Trials race your own saved ghost).
+
+## Round 4 — 2026-10-17 (full coverage + open-difference fixes)
+`node tools/verify-full.mjs` captures **every** screen (title, mode, players, engine, character select,
+cup select, course select, arena select, online), **all 16 courses**, **all 4 arenas**, countdown/HUD,
+VS/GP-podium/TT/Battle results, 2P split-screen and mirrored Extra — with the round's reference frames
+alongside (`comparisons/round4/index.html`). All checks passed; Mario Raceway spline 788 m, Rainbow Road
+2016 m (longest, as in the original).
+**Fixes applied (from round 2/3 open items):** item slot is hidden until the roulette (as in the original);
+battle CPU picks its nearest item box, steers around blocks, and has displacement-based unstick (path-length
+probe: 35–81 m per kart per 12 s); drift smoke/sparks particle system (white→yellow→red); Double Deck is now
+two levels (upper ring at y=4, four ramps, cliff bumps, falls); losing your last balloon turns you into a
+**bomb kart** that can still ram a rival (original rule); Fort/Deck/Skyscraper arenas are square like the
+originals (Big Donut stays round). Two bugs found by the new tests and fixed: eliminated karts kept driving
+invisibly; a bomb blast could be swallowed if the victim was mid-spin.
+
+## Rounds 5–6 — 2026-10-17 (graphics overhaul, user-reported)
+User verdict on rounds 1–4 from a real phone: gameplay fine, graphics "total shit", nothing like the
+original. Response: pulled **real gameplay frames for every course/arena** from Super Mario Wiki galleries
+into `reference/gameplay/` (plus the earlier course vistas in `reference/frames/`), rebuilt the visuals
+against them, and re-captured everything side by side (`comparisons/round6/index.html`, ours | original).
+- **Karts/drivers rebuilt:** pipe-frame karts (coloured rails, big rear/small front wheels with hubs that
+  steer, steering wheel that turns, twin exhausts, engine block, seat) and big-headed drivers with
+  per-character features (caps+brims+mustaches, Peach's crown/hair/dress, Toad's spotted cap, Yoshi's snout/
+  saddle/tail, DK's tie/muzzle, Wario's pink nose/zigzag mustache, Bowser's horns/spiked shell), blob
+  shadows, driver lean. Round-5 review caught the models facing backwards — flipped.
+- **Textured everything (procedural canvas textures, all original):** asphalt/highway lanes, dirt with tyre
+  bands, sand, snow, cracked ice, Bowser's blue/white checker + red carpet, rainbow bands, boardwalk planks,
+  grass/sand/snow/lava ground, brick castle walls, rock strata, crowd grandstands, billboards and yellow
+  chevron turn signs, rainbow "?" item boxes (fake = red, inverted ?), Thwomp faces, start-line chequers.
+- **Scenery/landmarks per course:** continuous guardrails with coloured top stripe (brick walls in the
+  castle), flat oval clouds, horizon hills, start banner arch with course name, cloud referee holding the
+  start light, grandstands (raceways/Wario Stadium), Peach's castle (Royal), barn+silo (Farm), rock arch
+  (Beach), pyramids+mesa (Desert), overhead gantries (Turnpike), giant snowman (Frappe), rock tunnel
+  (Choco), floodlights (Wario), ice cave (Sherbet), castle gate (Bowser), steamboat (Jungle), ghost house
+  with lit windows (Banshee), star arch+planets (Rainbow), face hills (Yoshi). Hazards rebuilt as proper
+  cars/train/penguins/snowmen/Thwomps/spotted egg.
+- **HUD/camera matched to the original 1P layout:** item top-left (count as a badge — fixes the cropped
+  "×3" on phones), TIME/LAP top-right, position bottom-right (moved clear of phone buttons), mini-map
+  bottom-left; closer/lower chase camera. Title screen now runs an attract-mode demo race behind the logo.
+**Measurements (round 6):** SPEC 53/53; full round passed (all courses/arenas/screens + bomb/deck/drift/
+HUD regressions + phone buttons); original quick verify passed; online two-context test passed again.
+**Still not 1:1 (honest):** drivers are original low-poly models, not the original's pre-rendered sprites;
+course geometry remains an original approximation of each layout (not traced 1:1); textures are procedural
+echoes, not the N64's. Side-by-side pages make the remaining gap plain to see.

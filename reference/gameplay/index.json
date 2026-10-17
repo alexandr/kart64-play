@@ -1,0 +1,22 @@
+{
+ "luigi": "luigi.png",
+ "farm": "farm.png",
+ "desert": "desert.png",
+ "turnpike": "turnpike.png",
+ "frappe": "frappe.png",
+ "choco": "choco.png",
+ "mario": "mario.png",
+ "royal": "royal.png",
+ "bowser": "bowser.png",
+ "jungle": "jungle.png",
+ "yoshi": "yoshi.png",
+ "banshee": "banshee.png",
+ "donut": "donut.png",
+ "deck": "deck.png",
+ "scraper": "scraper.png",
+ "beach": "beach.png",
+ "wario": "wario.png",
+ "sherbet": "sherbet.png",
+ "rainbow": "rainbow.png",
+ "fort": "fort.png"
+}

@@ -1,0 +1,85 @@
+{
+ "lapInfo": {
+  "luigi": {
+   "length": 1021,
+   "speed": 25.6,
+   "progress": 12
+  },
+  "farm": {
+   "length": 876,
+   "speed": 25.9,
+   "progress": 15
+  },
+  "beach": {
+   "length": 982,
+   "speed": 25.9,
+   "progress": 13
+  },
+  "desert": {
+   "length": 1103,
+   "speed": 25.8,
+   "progress": 13
+  },
+  "turnpike": {
+   "length": 1343,
+   "speed": 25.9,
+   "progress": 10
+  },
+  "frappe": {
+   "length": 1093,
+   "speed": 25.8,
+   "progress": 12
+  },
+  "choco": {
+   "length": 1087,
+   "speed": 25.8,
+   "progress": 14
+  },
+  "mario": {
+   "length": 788,
+   "speed": 25.8,
+   "progress": 18
+  },
+  "wario": {
+   "length": 1240,
+   "speed": 25.9,
+   "progress": 12
+  },
+  "sherbet": {
+   "length": 859,
+   "speed": 25.8,
+   "progress": 15
+  },
+  "royal": {
+   "length": 1343,
+   "speed": 25.9,
+   "progress": 10
+  },
+  "bowser": {
+   "length": 968,
+   "speed": 25.9,
+   "progress": 15
+  },
+  "jungle": {
+   "length": 1241,
+   "speed": 25.8,
+   "progress": 12
+  },
+  "yoshi": {
+   "length": 948,
+   "speed": 25.8,
+   "progress": 14
+  },
+  "banshee": {
+   "length": 876,
+   "speed": 25.9,
+   "progress": 17
+  },
+  "rainbow": {
+   "length": 2016,
+   "speed": 25.7,
+   "progress": 7
+  }
+ },
+ "errors": []
+}

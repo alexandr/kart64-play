@@ -35,8 +35,8 @@ await guest.keyboard.down('ArrowUp'); await guest.waitForTimeout(3500); await gu
 const gs2 = await guest.evaluate(() => window.__KART__?.state());
 console.log('guest after driving', JSON.stringify(gs2?.me));
 check(gs2.me.speed > 3 || gs2.me.progress > gs.me.progress, 'guest input drives its kart on host sim');
-await host.screenshot({ path: 'comparisons/round2/ours/net_host.png' }).catch(() => {});
-await guest.screenshot({ path: 'comparisons/round2/ours/net_guest.png' }).catch(() => {});
+await host.screenshot({ path: 'comparisons/round6/ours/net_host.png' }).catch(() => {});
+await guest.screenshot({ path: 'comparisons/round6/ours/net_guest.png' }).catch(() => {});
 await browser.close();
 console.log(fails ? `\n${fails} FAILURES` : '\nONLINE OK');
 process.exit(fails ? 1 : 0);

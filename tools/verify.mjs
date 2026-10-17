@@ -11,6 +11,7 @@ page.on('pageerror', e => errors.push('PAGEERROR: ' + e.message));
 page.on('console', m => { if (m.type() === 'error' && !m.text().includes('404')) errors.push('CONSOLE: ' + m.text()); });
 const shot = async n => { await page.screenshot({ path: `${OUT}/ours/${n}.png` }); console.log('shot', n); };
 const state = () => page.evaluate(() => window.__KART__?.state());
+const waitRacing = async (ms = 25000) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { const s = await state().catch(() => null); if (s?.race && s.phase === 'racing' && s.time > 1.5) return s; await page.waitForTimeout(600); } return state().catch(() => null); };
 let fails = 0; const check = (c, n) => { console.log(c ? 'PASS' : 'FAIL', n); if (!c) fails++; };
 // menus
 for (const [url, name] of [['', '01_title'], ['?screen=mode', '02_mode'], ['?screen=chars', '03_chars'], ['?screen=courses', '04_courses'], ['?screen=online', '05_online']]) {

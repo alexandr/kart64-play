@@ -12,8 +12,8 @@ public documentation of the original game — listings and descriptions, not rip
 - Sibling project ~/projects/smash64: `src/net/room.js` (PeerJS room pattern, ICE servers) and
   `src/core/touch.js` (nipplejs + thumb-button pattern) — approach reused, code adapted.
 
-Original screenshots of the N64 game were viewed on the wikis above for layout/colour
-comparison during development but are not redistributed in this repository. Side-by-side
-review pages under `comparisons/` therefore show this recreation's captures scored against
-the SPEC checklist (HUD layout, menus, hazard presence, lap pace) rather than embedding
-Nintendo screenshots.
+Reference frames pulled from the wiki galleries above live in `reference/frames/` (course
+vistas + title screen) and `reference/gameplay/` (per-course MK64 screenshots/gallery images),
+used only for side-by-side comparison in `comparisons/` — they are research material credited
+to Super Mario Wiki contributors, never used as in-game assets (the game ships only original
+procedural textures and models).
