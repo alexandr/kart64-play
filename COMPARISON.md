@@ -91,3 +91,25 @@ HUD regressions + phone buttons); original quick verify passed; online two-conte
 **Still not 1:1 (honest):** drivers are original low-poly models, not the original's pre-rendered sprites;
 course geometry remains an original approximation of each layout (not traced 1:1); textures are procedural
 echoes, not the N64's. Side-by-side pages make the remaining gap plain to see.
+
+## Round 7 — 2026-10-17 (art-direction overhaul, user-reported again)
+User verdict on round 6: still looks like smooth clay on empty plains. Compared directly against actual
+gameplay frames (`reference/gameplay/farm.png`, `turnpike.png`, `mario.png`…), the gaps were: smooth-shaded
+spheres, flat single-colour sky, invisible ground texture scale, open empty fields, small karts in frame,
+and a HUD in the wrong corners. Fixes:
+- **Flat shading everywhere** (faceted N64 polygons), chunkier geometry, icosahedron foliage.
+- **Sky domes** per course: painted gradient + clouds + hill silhouette (purple→red sunset on the Turnpike,
+  stars on Rainbow/Banshee), replacing flat sky colour and the floating cloud blobs.
+- **Checked mowing-stripe grass** correctly tiled over the infield apron; richer asphalt (patches, cracks);
+  taller concrete walls on the Turnpike; white picket fences with gaps on Farm/Beach/Jungle/Yoshi/Royal;
+  decor density 150→240 with bushes/rocks filling the plains; crowd texture redrawn as seated rows.
+- **Karts 22% bigger, camera much closer and lower** (the original fills the frame with the pack), constant
+  little exhaust puffs like the sprite exhaust in the originals.
+- **Original 1P HUD**: painted character portraits (new canvas portrait set for all 8, also on the select
+  screen), live top-4 rank column top-left, green TIME top-right, position bottom-left, transparent
+  course outline bottom-right.
+**Measurements:** SPEC 53/53; full round-7 capture passed (all 16 courses, 4 arenas, all screens, phone);
+quick verify passed; online two-context test passed. Side-by-side: `comparisons/round7/index.html`.
+**Still not the original:** drivers remain original low-poly models (the N64 used pre-rendered sprites),
+course geometry is an approximation, and textures are procedural echoes. It is, however, now the same
+art language — faceted, textured, enclosed, saturated — rather than smooth primitives on a plain.

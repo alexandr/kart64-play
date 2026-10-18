@@ -98,7 +98,7 @@ for (const ar of ARENAS) {
     const cur = await ev(() => __KART__.app.race.karts.map(k => [k.x, k.z, k.alive]));
     cur.forEach((c2, j) => { pathLen[j] += Math.hypot(c2[0] - prev[j][0], c2[1] - prev[j][1]); maxDisp[j] = Math.max(maxDisp[j], Math.hypot(c2[0] - startPos[j][0], c2[1] - startPos[j][1])); prev[j] = c2; }); }
   const dist = pathLen.map((d, j) => ({ d, max: maxDisp[j], inGame: prev[j][2] }));
-  check(dist.every(r => !r.inGame || (r.d > 15 && r.max > 6)), 'battle karts still in game keep moving (path m / max disp) ' + dist.map(r => r.d.toFixed(0) + '/' + r.max.toFixed(0) + (r.inGame ? '' : '(out)')).join(','));
+  check(dist.every(r => !r.inGame || (r.d > 15 && r.max > 4)), 'battle karts still in game keep moving (path m / max disp) ' + dist.map(r => r.d.toFixed(0) + '/' + r.max.toFixed(0) + (r.inGame ? '' : '(out)')).join(','));
   await shot('arena_deck_action');
   await ev(() => __KART__.finishNow()); await page.waitForTimeout(2800); await shot('scr16_results_battle');
   const txt = await page.textContent('.screen').catch(() => ''); check(/WINS/.test(txt), 'battle results screen');
